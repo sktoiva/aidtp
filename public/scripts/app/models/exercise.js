@@ -14,8 +14,9 @@ define(['spine/spine']
 			}
 		},
 	
+		//Calculates 1RM according to the formula by Epley: http://athletics.wikia.com/wiki/Epley_Formula
 		calculateOneRm: function(){
-			this.onerm = sets * weight / 30 + weight ;
+			this.onerm = (reps * weight / 30) + weight ;
 		}
 	});
 
