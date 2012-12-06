@@ -1,12 +1,11 @@
 {
-  "name": "application-name",
+  "name": "Strength-tool",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app"
   },
   "dependencies": {
-    "express": "3.0.3",
-    "jade": "*"
+    "express": "3.0.3"
   }
 }

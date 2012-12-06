@@ -23,6 +23,7 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(express.static(path.resolve(__dirname, 'public')));
+  app.use(express.static(path.resolve(__dirname, 'public/test')))
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 

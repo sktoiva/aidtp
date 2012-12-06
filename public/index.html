@@ -2,14 +2,35 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" type="text/stylesheet" href="stylesheets/bootstrap.min.css" >
-		<script data-main="scripts/main" src="/scripts/require-jquery.js"></script>
+		<script data-main="scripts/main" src="scripts/require-jquery.js"></script>
 	</head>
 	<body>
 			<div class="container">
 			<header>
 			</header>
 			<section>
-				<div id='body'></div>
+				<div id="body">
+					<script id="exerciseTemplate" type="text/x-jquery-template">
+
+				    <h1>Strength log</h1>
+				    
+				    <div id="training">
+					    <h2>Squat</h2>
+					    <form id="record_exercise" class="form-inline">
+					    	<label>Reps:</label> <input type="number">
+					    	<label>Sets:</label> <input type="number">
+					    	<label>Weight:</label> <input type="number">
+					    	<button type="submit" class="btn">Record</button>
+					    </form>
+					</div>
+
+				    <div class="input-append">
+				    	<input type="text" placeholder="Exercise type" class="span2">
+				    	<button type="button" class="btn">Add</button>
+				    </div>
+					</script>
+
+				</div>
 			</section>
 			<footer>
 			</footer>
