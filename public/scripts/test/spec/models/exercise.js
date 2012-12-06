@@ -29,6 +29,12 @@ define(["app/models/exercise"], function(exercise){
 			expect(ex.onerm).not.toBeNull();
 			expect(ex.onerm).not.toBeUndefined(); 
 			expect(ex.isValid()).toBe(true);
+
+			//Two random numbers for calculating weight: 50..149, sets: 1..5
+			var weight = (Math.floor(Math.random()*100)) + 50;
+			var sets = (Math.ceil(Math.random()*5));
+
+			expect(ex.onerm).toEqual(Math.floor((weight * sets)/30 + weight));
 		});
 	});
 });

@@ -13,6 +13,10 @@ define(['spine/spine']
 				return "Weight is required"
 			}
 		},
+	
+		calculateOneRm: function(){
+			this.onerm = sets * weight / 30 + weight ;
+		}
 	});
 
 	return Exercise;
