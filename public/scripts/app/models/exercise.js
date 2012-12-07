@@ -13,10 +13,13 @@ define(['spine/spine']
 				return "Weight is required"
 			}
 		},
-	
-		//Calculates 1RM according to the formula by Epley: http://athletics.wikia.com/wiki/Epley_Formula
-		calculateOneRm: function(){
-			this.onerm = (reps * weight / 30) + weight ;
+	});
+
+	Exercise.extend({
+		//Calculates 1RM (in kg) according to the formula by Epley: http://athletics.wikia.com/wiki/Epley_Formula
+		//Rounds to closest multiple of 1.25 kg 
+		calculateOneRm: function(exercise){
+			return 1.25*(Math.round(((exercise.reps * exercise.weight / 30) + exercise.weight)/1.25)) ;
 		}
 	});
 
