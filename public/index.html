@@ -2,38 +2,64 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" type="text/stylesheet" href="stylesheets/bootstrap.min.css" >
+		<link rel="stylesheet" type="text/stylesheet" href="stylesheets/style.css" >
 		<script data-main="scripts/main" src="scripts/require-jquery.js"></script>
 	</head>
 	<body>
-			<div class="container">
+		<div class="main container">
 			<header>
+				<h1>Am I doing the program?</h1>
 			</header>
 			<section>
-				<div id="body">
-					<script id="exerciseTemplate" type="text/x-jquery-template">
-
-				    <h1>Strength log</h1>
-				    
-				    <div id="training">
-					    <h2>Squat</h2>
-					    <form id="record_exercise" class="form-inline">
-					    	<label>Reps:</label> <input type="number">
-					    	<label>Sets:</label> <input type="number">
-					    	<label>Weight:</label> <input type="number">
-					    	<button type="submit" class="btn">Record</button>
-					    </form>
-					</div>
-
-				    <div class="input-append">
-				    	<input type="text" placeholder="Exercise type" class="span2">
-				    	<button type="button" class="btn">Add</button>
-				    </div>
-					</script>
-
+				<div id="exercise_recorder">
+					<h2>Record trainings</h2>
+						Date: <input type="text" class="span2" data-date-format="dd.mm.yyyy" id="datepicker">
+				</div>
+				<div id="exercise_table">
+					<h1>Exercise Log</h1>
+					<table class="table table-hover table-condensed">
+					<thead>
+					<tr>
+						<th>Date</th><th>Type</th><th>Reps</th><th>Sets</th><th>Weight</th>
+					</tr>
+					</thead>
+					<tbody>	
+					</tbody>
+				</table>
+				</div>
+				<div id="exercise_charts">
 				</div>
 			</section>
 			<footer>
-			</footer>
+			<!-- jQuery Templates for Spine -->
+
+			<script id="exercise_record_template" type="text/x-jquery-template">
+			    <div id="training">
+				    <strong>${name}</strong>
+				    <form class="record_exercise form-inline">
+				    	<label>Reps:</label> <input name="reps" type="number" min=1>
+				    	<label>Sets:</label> <input name="sets" type="number" min=1>
+				    	<label>Weight:</label> <input name="weight" type="number" min=1>
+				    	<input name="type" value="${type}" type="hidden">
+				    	<input name="date" value="${date}" type="hidden">
+				    	<button type="submit" class="btn">Record</button>
+				    </form>
+				</div>
+			</script>
+
+			<script id="exercise_table_template" type="text/x-jquery-template">
+						{{each exercises}}
+							<tr>
+								<td>${date}</td>
+								<td>${type}</td>
+								<td>${reps}</td>
+								<td>${sets}</td>
+								<td>${weight}</td>
+							</tr>
+						{{/each}}
+			</script>		
+
+			</footer>	
 		</div>
 	</body>
 </html>

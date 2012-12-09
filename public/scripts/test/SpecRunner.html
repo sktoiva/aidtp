@@ -29,7 +29,9 @@
   <script type="text/javascript" src="spec/SpecHelper.js"></script>
 
   <script type="text/javascript">
-    require(['test/spec/models/exercise'],
+    require([ 'test/spec/models/exercise'
+            , 'test/spec/controllers/exercises'
+            , 'spine/spine'],
       function() {   
         $(function(){
           jasmine.getEnv().addReporter(new jasmine.TrivialReporter());

@@ -6,19 +6,24 @@ require.config({
 		, 'jquery': {
 			exports: '$'
 		}
+        , 'spine/manager':{
+            deps: ['spine/spine']
+        }
+        , 'spine/local':{
+            deps: ['spine/spine']
+        }
 
 	}
 });
 
-require(['jquery'
-	    , 'spine/spine'
-	    , 'app/controllers/exercises']
-	    , function($
-	    		, Spine
-	    		, Exercises){
+require([ 'jquery'
+        , 'app/controllers/AidtpApp'	]
+	    , function($, AidtpApp){
+	    
+        console.log("Application initialized.");
 
-	    console.log("Application initialized.");
-
-	    var Exercise = new Exercises({el:$('#body')});
+        $(document).ready(function(){
+            new AidtpApp({el: $(".main")}).render();
+        });
 
 });
