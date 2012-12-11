@@ -14,9 +14,8 @@ define([ 'spine/spine'
         }
 
         , fetch: function(){
-            var exercises = ExerciseModel.all();
-            console.log(exercises);
-            return exercises;
+            var exercises = ExerciseModel.fetchAllByMonth(12);
+            return ExerciseModel.combineExercisesByDate(exercises);
         }
 
         , render: function(){

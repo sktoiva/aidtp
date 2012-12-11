@@ -20,7 +20,7 @@
 					<table class="table table-hover table-condensed">
 					<thead>
 					<tr>
-						<th>Date</th><th>Type</th><th>Reps</th><th>Sets</th><th>Weight</th>
+						<th>Date</th><th>Squat</th><th>Overhead press</th><th>Bench press</th><th>Power clean</th><th>Deadlift</th>
 					</tr>
 					</thead>
 					<tbody>	
@@ -51,10 +51,52 @@
 						{{each exercises}}
 							<tr>
 								<td>${date}</td>
-								<td>${type}</td>
-								<td>${reps}</td>
-								<td>${sets}</td>
-								<td>${weight}</td>
+								{{each entries}}
+							
+								{{if exercise.type == "squat"}}
+								<td>
+								     reps: ${exercise.reps} <br>
+								     sets: ${exercise.sets} <br>
+								     weight: ${exercise.weight}
+								</td>
+								{{/if}}
+								  
+								
+								{{if exercise.type == "opress"}}
+								<td>
+								     reps: ${exercise.reps} <br>
+								     sets: ${exercise.sets} <br>
+								     weight: ${exercise.weight}
+								</td>
+								{{/if}}
+								
+								{{if exercise.type == "bench"}}
+								<td>
+								     reps: ${exercise.reps} <br>
+								     sets: ${exercise.sets} <br>
+								     weight: ${exercise.weight}
+								</td>
+								{{/if}}
+								
+								
+								{{if exercise.type == "pclean"}}
+								<td>
+								     reps: ${exercise.reps} <br>
+								     sets: ${exercise.sets} <br>
+								     weight: ${exercise.weight}
+								</td>
+								{{/if}}
+								
+								
+								{{if exercise.type == "deadlift"}}
+								<td>
+								     reps: ${exercise.reps} <br>
+								     sets: ${exercise.sets} <br>
+								     weight: ${exercise.weight}
+								</td>
+								{{/if}}
+								
+								{{/each}}
 							</tr>
 						{{/each}}
 			</script>		

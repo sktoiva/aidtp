@@ -19,6 +19,7 @@ define([ 'jquery'
 
             , render: function(){
                 console.log("Rendering ExercisesRecorder");
+                console.log(ExerciseModel.add);
                 this.template();
             }
 

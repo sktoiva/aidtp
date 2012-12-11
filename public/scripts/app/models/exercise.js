@@ -43,12 +43,60 @@ define([ 'spine/spine'
 			return parseInt(dateArr[1]);
 		}
 
-		, fetchAllByDate: function(date){
+		, fetchAllByMonth: function(month){
 			return Exercise.select(function(exercise){
-				return date === exercise.date; 
+				return month === exercise.getMonth(); 
 			});
 		}
-	});
+
+		, compare: function(exA, exB){
+			if(a.date > b.date){
+            	return -1;
+            }else if(a.date < b.date){
+            	return 1
+            }else{
+            	return 0;
+            }
+		}
+
+		//Combines exercises by date in an exercise array
+		//Data format: [{date: '26.12.2012', exercises: [{type: "squat", reps: 5, sets: 3, weight: 150}]}]
+		, combineExercisesByDate: function(exercises){ 
+      
+            if(!exercises || exercises.length === 0){
+                return []; //return an empty array if called with undefined or empty array
+            }
+
+            //sort exercises on descending order (newest first)
+            exercises.sort(Exercise.compare);
+            
+            var currDate = exercises[0].date; //take first date for comparison in for loop
+            var entries = [{date: currDate, entries: []}]; //create entries for storing 
+
+            var entriesIdx = 0;
+            for(var i = 0; i < exercises.length; i++){
+
+            	//take the first logEntry
+            	var logEntry = {  type: exercises[i].type
+                                , reps: exercises[i].reps
+                                , sets: exercises[i].sets
+                                , weight: exercises[i].weight };
+
+                //if date is the same as currentdate, no need to create new date entry to entries, just push the data to current index
+                if(currDate === exercises[i].date){
+                    entries[entriesIdx].entries.push({ exercise: logEntry })
+    
+                }else{
+                    currDate = exercises[i].date;
+                    entries[++entriesIdx] = {date: currDate, entries: [{ exercise: logEntry }]};
+                
+                }
+            }
+
+            return entries;
+        }
+	
+	})
 
 
 	return Exercise;
