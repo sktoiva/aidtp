@@ -50,10 +50,10 @@ define([ 'spine/spine'
         }
 
         , compare: function(exA, exB){
-            if(a.date > b.date){
+            if(exA.date > exB.date){
                 return -1;
-            }else if(a.date < b.date){
-                return 1
+            }else if(exA.date < exB.date){
+                return 1;
             }else{
                 return 0;
             }
